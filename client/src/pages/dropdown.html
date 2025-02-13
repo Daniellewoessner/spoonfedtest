@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+
+var proteinObject = {
+  "Chicken": {
+    "Asparagus": ["Mariana", "Garlic", "Lemon", "Milk"],
+    "Spinach": ["Cream", "Garlic", "Pasta", "Salt"],
+    "Potatoes": ["Butter", "Salt", "Milk", "Garlic"]    
+  },
+  "Steak": {
+    "Asparagus": ["Mariana", "Garlic", "Lemon", "Milk"],
+    "Spinach": ["Cream", "Garlic", "Pasta", "Salt"],
+    "Potatoes": ["Butter", "Salt", "Milk", "Garlic"]  
+  },
+  "Shrimp": {
+    "Asparagus": ["Mariana", "Garlic", "Lemon", "Milk"],
+    "Spinach": ["Cream", "Garlic", "Pasta", "Salt"],
+    "Potatoes": ["Butter", "Salt", "Milk", "Garlic"]  
+},
+"Peanut Butter": {
+    "Asparagus": ["Mariana", "Garlic", "Lemon", "Milk"],
+    "Spinach": ["Cream", "Garlic", "Pasta", "Salt"],
+    "Potatoes": ["Butter", "Salt", "Milk", "Garlic"]  
+}
+
+}
+
+window.onload = function() {
+  var proteinSel = document.getElementById("meat");
+  var vegetableSel = document.getElementById("vegetable");
+  var miscSel = document.getElementById("misc");
+  for (var x in meatObject) {
+    meatSel.options[meatSel.options.length] = new Option(x, x);
+  }
+  proteinSel.onchange = function() {
+    
+    vegetableSel.length = 1;
+    miscSel.length = 1;
+    
+    for (var y in meatObject[this.value]) {
+      vegetableSel.options[vegetableSel.options.length] = new Option(y, y);
+    }
+  }
+  vegetableSel.onchange = function() {
+    
+    miscSel.length = 1;
+    
+    var z = proteinObject[proteinSel.value][this.value];
+    for (var i = 0; i < z.length; i++) {
+      miscSel.options[miscSel.options.length] = new Option(z[i], z[i]);
+    }
+  }
+}
+</script>
+</head>   
+<body>
+
+<h1>Choose Your Ingredients</h1>
+
+  <form name="form1" id="form1" action="/action_page.php">
+    Protein: <select name="meat" id="meat">
+      <option value="" selected="selected">Select meat</option>
+    </select>
+    <br><br>
+    Vegetable: <select name="vegetable" id="vegetable">
+      <option value="" selected="selected">Please select vegetable</option>
+    </select>
+    <br><br>
+    Misc: <select name="misc" id="misc">
+      <option value="" selected="selected">Please select spice</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
