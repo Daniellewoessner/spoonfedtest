@@ -1,0 +1,16 @@
+.DropdownToggle {
+    
+    color:aqua;
+}
+
+Dropdown item{
+    position: fixed;
+}
+.ingredient-card{
+    color: red;
+}
+.profile-container {
+    background-color: #FFF9F0;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
